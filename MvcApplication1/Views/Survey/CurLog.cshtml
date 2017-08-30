@@ -1,0 +1,44 @@
+﻿@model MvcApplication1.Models.Log
+
+@{
+    ViewBag.Title = "CurLog";
+}
+@section headermenu
+    {  
+      <input type="submit" class="mainMenuPart" value="exit" name="direction"/>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<div class="editor-field">
+    <div class="MoreBigTextOnPage">
+        <br />
+        @Html.DisplayText("Question")
+        <br />
+    </div>
+
+       <input type="submit" value="prev" name="direction"/>
+    @Html.DropDownListFor(model=> model.AnswId,
+             ViewBag.Answers as SelectList)
+       <input type="submit" value="next" name="direction"/> 
+         
+
+</div>
+        
+    <div style="visibility:hidden">
+        @Html.TextBox("Id")
+        @Html.ValidationMessageFor(model => model.Id)
+        @Html.TextBox("PropId")
+        @Html.ValidationMessageFor(model => model.PropId)
+        @Html.TextBox("SurveyId")
+        @Html.ValidationMessageFor(model => model.SurveyId)
+        @Html.TextBox("direction")
+     </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")}
+
+

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="ItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Item)">
+        <MappingFragment StoreEntitySet="ItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExpertSystemId" ColumnName="ExpertSystemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Property)">
+        <MappingFragment StoreEntitySet="PropertySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RootQdeep" ColumnName="RootQdeep" />
+          <ScalarProperty Name="NumberInList" ColumnName="NumberInList" />
+          <ScalarProperty Name="ExpertSystemId" ColumnName="ExpertSystemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ValSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Val)">
+        <MappingFragment StoreEntitySet="ValSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Mean" ColumnName="Mean" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Question)">
+        <MappingFragment StoreEntitySet="QuestionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QuestionTxt" ColumnName="QuestionTxt" />
+          <ScalarProperty Name="Deep" ColumnName="Deep" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Answer)">
+        <MappingFragment StoreEntitySet="AnswerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Note)">
+        <MappingFragment StoreEntitySet="NoteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ValId" ColumnName="ValId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SelectorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SelectorSet)">
+        <MappingFragment StoreEntitySet="SelectorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="ValId" ColumnName="ValId" />
+          <ScalarProperty Name="Probability" ColumnName="Probability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpertSystemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ExpertSystem)">
+        <MappingFragment StoreEntitySet="ExpertSystemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastVisited" ColumnName="LastVisited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Log)">
+        <MappingFragment StoreEntitySet="LogSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QId" ColumnName="QId" />
+          <ScalarProperty Name="AnswId" ColumnName="AnswId" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="PropId" ColumnName="PropId" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Survey)">
+        <MappingFragment StoreEntitySet="SurveySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExpertSystemId" ColumnName="ExpertSystemId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ShowExplanation" ColumnName="ShowExplanation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SurveyItem)">
+        <MappingFragment StoreEntitySet="SurveyItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="Probability" ColumnName="Probability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempLogItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TempLogItem)">
+        <MappingFragment StoreEntitySet="TempLogItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Probability" ColumnName="Probability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

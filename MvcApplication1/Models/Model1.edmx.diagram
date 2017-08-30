@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d4df8e628854ad1859e9a7bd0f85b4a" Name="Diagram1" ZoomLevel="72" >
+        <EntityTypeShape EntityType="Model1.Item" Width="1.5" PointX="6.625" PointY="5.125" />
+        <EntityTypeShape EntityType="Model1.Property" Width="1.5" PointX="3.375" PointY="4.875" />
+        <EntityTypeShape EntityType="Model1.Val" Width="1.5" PointX="4.625" PointY="9.625" />
+        <EntityTypeShape EntityType="Model1.Question" Width="1.5" PointX="16.75" PointY="6.25" />
+        <EntityTypeShape EntityType="Model1.Answer" Width="1.5" PointX="13.25" PointY="5.75" />
+        <AssociationConnector Association="Model1.PropertyVal" />
+        <EntityTypeShape EntityType="Model1.Note" Width="1.5" PointX="9.75" PointY="8.625" />
+        <AssociationConnector Association="Model1.ValNote" />
+        <AssociationConnector Association="Model1.ItemNote" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="Model1.QuestionAnswer" />
+        <AssociationConnector Association="Model1.AnswerQuestion" />
+        <AssociationConnector Association="Model1.PropertyQuestion" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model1.SelectorSet" Width="1.5" PointX="15.25" PointY="10" />
+        <AssociationConnector Association="Model1.FK_AnswerSelector" />
+        <AssociationConnector Association="Model1.FK_ValSelector" />
+        <EntityTypeShape EntityType="Model1.ExpertSystem" Width="1.5" PointX="3.75" PointY="1.25" />
+        <AssociationConnector Association="Model1.ExpertSystemProperty" />
+        <AssociationConnector Association="Model1.ExpertSystemItem" />
+        <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="8.5" PointY="0.5" />
+        <AssociationConnector Association="Model1.UserExpertSystem" />
+        <EntityTypeShape EntityType="Model1.Log" Width="1.5" PointX="12.5" PointY="0.875" />
+        <EntityTypeShape EntityType="Model1.Survey" Width="1.5" PointX="9" PointY="2.625" />
+        <AssociationConnector Association="Model1.SurveyLog" />
+        <AssociationConnector Association="Model1.ExpertSystemSurvey" />
+        <AssociationConnector Association="Model1.LogLog" />
+        <EntityTypeShape EntityType="Model1.SurveyItem" Width="1.5" PointX="10.75" PointY="5.375" />
+        <AssociationConnector Association="Model1.ItemSurveyItem" />
+        <AssociationConnector Association="Model1.SurveySurveyItem" />
+        <EntityTypeShape EntityType="Model1.TempLogItem" Width="1.75" PointX="14.75" PointY="2.25" />
+        <AssociationConnector Association="Model1.LogTempRemovedItem" />
+        <AssociationConnector Association="Model1.ItemTempRemovedItem" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

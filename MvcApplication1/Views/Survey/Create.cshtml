@@ -1,0 +1,43 @@
+﻿@model MvcApplication1.Models.Survey
+
+@{
+    ViewBag.Title = "Create";
+}
+@section headermenu
+    { 
+    @if(Model.UserId!=(-1))
+    { @Html.ActionLink("Back", "Menu", "User",new{id=Model.UserId}, new {@class="MainMenuPart" })}
+else
+{@Html.ActionLink("Back", "Index", "ExpertSystem",null, new {@class="MainMenuPart" })}}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Survey</legend>
+
+     <h1>Expert system: </h1>
+            <div class="UserLableNonFloat">
+                @Html.DisplayFor(model=>model.ExpertSystem.Name)
+            </div>
+                   <div class="message-error">@ViewBag.Err</div>
+        <h3>Type of survey: </h3>
+                     @Html.DropDownList("Type",
+             new SelectList(new Dictionary<string,string>{{"usual","usual"},{"probability","probability"}},
+             "key", "value"))
+        <p>
+            <input type="submit" value="Start Survey" />
+        </p>
+        <p>
+         <input style="visibility:hidden" value="@Model.ExpertSystemId" name="esysid" type="number" />
+         <input style="visibility:hidden" value="@Model.UserId" name="userid" type="number" />
+        </p>
+
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

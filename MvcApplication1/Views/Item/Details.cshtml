@@ -1,0 +1,35 @@
+﻿@model MvcApplication1.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="Smallmenu-Part2">
+    <a class="SmallmenuPartText" href="http://localhost:9816/Item/Edit/@Model.Id">Редактировать</a>
+
+</div>
+<div class="Smallmenu-Part2">
+    <a id="GoBack" class="SmallmenuPartText" href="http://localhost:9816/Item/Index/@Model.ExpertSystemId">Назад к списку предметов</a>
+</div>
+
+<h2>Подробности предмета</h2>
+
+<fieldset>
+    <legend>Item</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+
+<div style="visibility:hidden">
+    @Html.TextBox("CurrentExpSystemId")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

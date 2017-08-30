@@ -1,0 +1,36 @@
+﻿@model MvcApplication1.Models.ExpertSystem
+@{
+    ViewBag.Title = "PropertyNumeration";
+}
+@section headermenu
+    { 
+        
+     @Html.ActionLink("Back", "Menu", "ExpertSystem", new { id = Model.Id }, new {@class="MainMenuPart" })
+}
+<h2>PropertyNumeration</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true){
+<fieldset>
+    <legend>ExpertSystem</legend>
+
+    @foreach(var prop in Model.Property.OrderBy(x=> x.NumberInList))
+    {     <div class="editor-label">
+            @prop.Name
+          </div>
+        @Html.DropDownList("numeration", @ViewBag.propsnumbers as SelectList,prop.NumberInList);
+    }
+
+</fieldset>
+        <p>
+        <input type="submit" value="Save"  />
+    </p>                       
+}
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

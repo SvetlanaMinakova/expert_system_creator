@@ -1,0 +1,38 @@
+﻿@model MvcApplication1.Models.Survey
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Survey</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExpertSystemId, "ExpertSystem")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ExpertSystemId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ExpertSystemId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

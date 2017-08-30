@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="AnswerSet" EntityType="Model1.Store.AnswerSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExpertSystemSet" EntityType="Model1.Store.ExpertSystemSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemSet" EntityType="Model1.Store.ItemSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LogSet" EntityType="Model1.Store.LogSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NoteSet" EntityType="Model1.Store.NoteSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PropertySet" EntityType="Model1.Store.PropertySet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuestionSet" EntityType="Model1.Store.QuestionSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SelectorSet" EntityType="Model1.Store.SelectorSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SurveyItemSet" EntityType="Model1.Store.SurveyItemSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SurveySet" EntityType="Model1.Store.SurveySet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TempLogItemSet" EntityType="Model1.Store.TempLogItemSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserSet" EntityType="Model1.Store.UserSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ValSet" EntityType="Model1.Store.ValSet" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AnswerQuestion" Association="Model1.Store.FK_AnswerQuestion">
+            <End Role="AnswerSet" EntitySet="AnswerSet" />
+            <End Role="QuestionSet" EntitySet="QuestionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AnswerSelector" Association="Model1.Store.FK_AnswerSelector">
+            <End Role="AnswerSet" EntitySet="AnswerSet" />
+            <End Role="SelectorSet" EntitySet="SelectorSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertSystemItem" Association="Model1.Store.FK_ExpertSystemItem">
+            <End Role="ExpertSystemSet" EntitySet="ExpertSystemSet" />
+            <End Role="ItemSet" EntitySet="ItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertSystemProperty" Association="Model1.Store.FK_ExpertSystemProperty">
+            <End Role="ExpertSystemSet" EntitySet="ExpertSystemSet" />
+            <End Role="PropertySet" EntitySet="PropertySet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExpertSystemSurvey" Association="Model1.Store.FK_ExpertSystemSurvey">
+            <End Role="ExpertSystemSet" EntitySet="ExpertSystemSet" />
+            <End Role="SurveySet" EntitySet="SurveySet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemNote" Association="Model1.Store.FK_ItemNote">
+            <End Role="ItemSet" EntitySet="ItemSet" />
+            <End Role="NoteSet" EntitySet="NoteSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSurveyItem" Association="Model1.Store.FK_ItemSurveyItem">
+            <End Role="ItemSet" EntitySet="ItemSet" />
+            <End Role="SurveyItemSet" EntitySet="SurveyItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemTempRemovedItem" Association="Model1.Store.FK_ItemTempRemovedItem">
+            <End Role="ItemSet" EntitySet="ItemSet" />
+            <End Role="TempLogItemSet" EntitySet="TempLogItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogLog" Association="Model1.Store.FK_LogLog">
+            <End Role="LogSet" EntitySet="LogSet" />
+            <End Role="LogSet1" EntitySet="LogSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogTempRemovedItem" Association="Model1.Store.FK_LogTempRemovedItem">
+            <End Role="LogSet" EntitySet="LogSet" />
+            <End Role="TempLogItemSet" EntitySet="TempLogItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyQuestion" Association="Model1.Store.FK_PropertyQuestion">
+            <End Role="PropertySet" EntitySet="PropertySet" />
+            <End Role="QuestionSet" EntitySet="QuestionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropertyVal" Association="Model1.Store.FK_PropertyVal">
+            <End Role="PropertySet" EntitySet="PropertySet" />
+            <End Role="ValSet" EntitySet="ValSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionAnswer" Association="Model1.Store.FK_QuestionAnswer">
+            <End Role="QuestionSet" EntitySet="QuestionSet" />
+            <End Role="AnswerSet" EntitySet="AnswerSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyLog" Association="Model1.Store.FK_SurveyLog">
+            <End Role="SurveySet" EntitySet="SurveySet" />
+            <End Role="LogSet" EntitySet="LogSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveySurveyItem" Association="Model1.Store.FK_SurveySurveyItem">
+            <End Role="SurveySet" EntitySet="SurveySet" />
+            <End Role="SurveyItemSet" EntitySet="SurveyItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserExpertSystem" Association="Model1.Store.FK_UserExpertSystem">
+            <End Role="UserSet" EntitySet="UserSet" />
+            <End Role="ExpertSystemSet" EntitySet="ExpertSystemSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ValNote" Association="Model1.Store.FK_ValNote">
+            <End Role="ValSet" EntitySet="ValSet" />
+            <End Role="NoteSet" EntitySet="NoteSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ValSelector" Association="Model1.Store.FK_ValSelector">
+            <End Role="ValSet" EntitySet="ValSet" />
+            <End Role="SelectorSet" EntitySet="SelectorSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AnswerSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Val" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="QuestionId" Type="int" />
+        </EntityType>
+        <EntityType Name="ExpertSystemSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExpertSystemId" Type="int" />
+        </EntityType>
+        <EntityType Name="LogSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QId" Type="int" Nullable="false" />
+          <Property Name="AnswId" Type="int" Nullable="false" />
+          <Property Name="SurveyId" Type="int" />
+          <Property Name="PropId" Type="int" Nullable="false" />
+          <Property Name="LogId" Type="int" />
+        </EntityType>
+        <EntityType Name="NoteSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ValId" Type="int" />
+          <Property Name="ItemId" Type="int" />
+        </EntityType>
+        <EntityType Name="PropertySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RootQdeep" Type="int" Nullable="false" />
+          <Property Name="NumberInList" Type="int" Nullable="false" />
+          <Property Name="ExpertSystemId" Type="int" />
+        </EntityType>
+        <EntityType Name="QuestionSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionTxt" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Deep" Type="int" Nullable="false" />
+          <Property Name="AnswerId" Type="int" />
+          <Property Name="PropertyId" Type="int" />
+        </EntityType>
+        <EntityType Name="SelectorSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerId" Type="int" />
+          <Property Name="ValId" Type="int" />
+          <Property Name="Probability" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyItemSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="int" />
+          <Property Name="SurveyId" Type="int" />
+          <Property Name="Probability" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveySet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertSystemId" Type="int" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="IsPropbability" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TempLogItemSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LogId" Type="int" />
+          <Property Name="ItemId" Type="int" />
+          <Property Name="Probability" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastVisited" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ValSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="int" />
+          <Property Name="Mean" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AnswerQuestion">
+          <End Role="AnswerSet" Type="Model1.Store.AnswerSet" Multiplicity="0..1" />
+          <End Role="QuestionSet" Type="Model1.Store.QuestionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnswerSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionSet">
+              <PropertyRef Name="AnswerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AnswerSelector">
+          <End Role="AnswerSet" Type="Model1.Store.AnswerSet" Multiplicity="0..1" />
+          <End Role="SelectorSet" Type="Model1.Store.SelectorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnswerSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectorSet">
+              <PropertyRef Name="AnswerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertSystemItem">
+          <End Role="ExpertSystemSet" Type="Model1.Store.ExpertSystemSet" Multiplicity="0..1" />
+          <End Role="ItemSet" Type="Model1.Store.ItemSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpertSystemSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemSet">
+              <PropertyRef Name="ExpertSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertSystemProperty">
+          <End Role="ExpertSystemSet" Type="Model1.Store.ExpertSystemSet" Multiplicity="0..1" />
+          <End Role="PropertySet" Type="Model1.Store.PropertySet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpertSystemSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertySet">
+              <PropertyRef Name="ExpertSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExpertSystemSurvey">
+          <End Role="ExpertSystemSet" Type="Model1.Store.ExpertSystemSet" Multiplicity="0..1" />
+          <End Role="SurveySet" Type="Model1.Store.SurveySet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpertSystemSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurveySet">
+              <PropertyRef Name="ExpertSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemNote">
+          <End Role="ItemSet" Type="Model1.Store.ItemSet" Multiplicity="0..1" />
+          <End Role="NoteSet" Type="Model1.Store.NoteSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteSet">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSurveyItem">
+          <End Role="ItemSet" Type="Model1.Store.ItemSet" Multiplicity="0..1" />
+          <End Role="SurveyItemSet" Type="Model1.Store.SurveyItemSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurveyItemSet">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemTempRemovedItem">
+          <End Role="ItemSet" Type="Model1.Store.ItemSet" Multiplicity="0..1" />
+          <End Role="TempLogItemSet" Type="Model1.Store.TempLogItemSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempLogItemSet">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogLog">
+          <End Role="LogSet" Type="Model1.Store.LogSet" Multiplicity="0..1" />
+          <End Role="LogSet1" Type="Model1.Store.LogSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LogSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LogSet1">
+              <PropertyRef Name="LogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogTempRemovedItem">
+          <End Role="LogSet" Type="Model1.Store.LogSet" Multiplicity="0..1" />
+          <End Role="TempLogItemSet" Type="Model1.Store.TempLogItemSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LogSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempLogItemSet">
+              <PropertyRef Name="LogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyQuestion">
+          <End Role="PropertySet" Type="Model1.Store.PropertySet" Multiplicity="0..1" />
+          <End Role="QuestionSet" Type="Model1.Store.QuestionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuestionSet">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropertyVal">
+          <End Role="PropertySet" Type="Model1.Store.PropertySet" Multiplicity="0..1" />
+          <End Role="ValSet" Type="Model1.Store.ValSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PropertySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ValSet">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionAnswer">
+          <End Role="QuestionSet" Type="Model1.Store.QuestionSet" Multiplicity="0..1" />
+          <End Role="AnswerSet" Type="Model1.Store.AnswerSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AnswerSet">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyLog">
+          <End Role="SurveySet" Type="Model1.Store.SurveySet" Multiplicity="0..1" />
+          <End Role="LogSet" Type="Model1.Store.LogSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SurveySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LogSet">
+              <PropertyRef Name="SurveyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveySurveyItem">
+          <End Role="SurveySet" Type="Model1.Store.SurveySet" Multiplicity="0..1" />
+          <End Role="SurveyItemSet" Type="Model1.Store.SurveyItemSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SurveySet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurveyItemSet">
+              <PropertyRef Name="SurveyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserExpertSystem">
+          <End Role="UserSet" Type="Model1.Store.UserSet" Multiplicity="0..1" />
+          <End Role="ExpertSystemSet" Type="Model1.Store.ExpertSystemSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertSystemSet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ValNote">
+          <End Role="ValSet" Type="Model1.Store.ValSet" Multiplicity="0..1" />
+          <End Role="NoteSet" Type="Model1.Store.NoteSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ValSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteSet">
+              <PropertyRef Name="ValId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ValSelector">
+          <End Role="ValSet" Type="Model1.Store.ValSet" Multiplicity="0..1" />
+          <End Role="SelectorSet" Type="Model1.Store.SelectorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ValSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectorSet">
+              <PropertyRef Name="ValId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ItemSet" EntityType="Model1.Item" />
+          <EntitySet Name="PropertySet" EntityType="Model1.Property" />
+          <EntitySet Name="ValSet" EntityType="Model1.Val" />
+          <EntitySet Name="QuestionSet" EntityType="Model1.Question" />
+          <EntitySet Name="AnswerSet" EntityType="Model1.Answer" />
+          <AssociationSet Name="PropertyVal" Association="Model1.PropertyVal">
+            <End Role="Property" EntitySet="PropertySet" />
+            <End Role="Val" EntitySet="ValSet" />
+          </AssociationSet>
+          <EntitySet Name="NoteSet" EntityType="Model1.Note" />
+          <AssociationSet Name="ValNote" Association="Model1.ValNote">
+            <End Role="Val" EntitySet="ValSet" />
+            <End Role="Note" EntitySet="NoteSet" />
+          </AssociationSet>
+          <AssociationSet Name="ItemNote" Association="Model1.ItemNote">
+            <End Role="Item" EntitySet="ItemSet" />
+            <End Role="Note" EntitySet="NoteSet" />
+          </AssociationSet>
+          <AssociationSet Name="QuestionAnswer" Association="Model1.QuestionAnswer">
+            <End Role="Question" EntitySet="QuestionSet" />
+            <End Role="Answer" EntitySet="AnswerSet" />
+          </AssociationSet>
+          <AssociationSet Name="AnswerQuestion" Association="Model1.AnswerQuestion">
+            <End Role="Answer" EntitySet="AnswerSet" />
+            <End Role="Question" EntitySet="QuestionSet" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyQuestion" Association="Model1.PropertyQuestion">
+            <End Role="Property" EntitySet="PropertySet" />
+            <End Role="Question" EntitySet="QuestionSet" />
+          </AssociationSet>
+          <EntitySet Name="SelectorSet" EntityType="Model1.SelectorSet" />
+          <AssociationSet Name="FK_AnswerSelector" Association="Model1.FK_AnswerSelector">
+            <End Role="Answer" EntitySet="AnswerSet" />
+            <End Role="SelectorSet" EntitySet="SelectorSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ValSelector" Association="Model1.FK_ValSelector">
+            <End Role="Val" EntitySet="ValSet" />
+            <End Role="SelectorSet" EntitySet="SelectorSet" />
+          </AssociationSet>
+          <EntitySet Name="ExpertSystemSet" EntityType="Model1.ExpertSystem" />
+          <AssociationSet Name="ExpertSystemProperty" Association="Model1.ExpertSystemProperty">
+            <End Role="ExpertSystem" EntitySet="ExpertSystemSet" />
+            <End Role="Property" EntitySet="PropertySet" />
+          </AssociationSet>
+          <AssociationSet Name="ExpertSystemItem" Association="Model1.ExpertSystemItem">
+            <End Role="ExpertSystem" EntitySet="ExpertSystemSet" />
+            <End Role="Item" EntitySet="ItemSet" />
+          </AssociationSet>
+          <EntitySet Name="UserSet" EntityType="Model1.User" />
+          <AssociationSet Name="UserExpertSystem" Association="Model1.UserExpertSystem">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="ExpertSystem" EntitySet="ExpertSystemSet" />
+          </AssociationSet>
+          <EntitySet Name="LogSet" EntityType="Model1.Log" />
+          <EntitySet Name="SurveySet" EntityType="Model1.Survey" />
+          <AssociationSet Name="SurveyLog" Association="Model1.SurveyLog">
+            <End Role="Survey" EntitySet="SurveySet" />
+            <End Role="Log" EntitySet="LogSet" />
+          </AssociationSet>
+          <AssociationSet Name="ExpertSystemSurvey" Association="Model1.ExpertSystemSurvey">
+            <End Role="ExpertSystem" EntitySet="ExpertSystemSet" />
+            <End Role="Survey" EntitySet="SurveySet" />
+          </AssociationSet>
+          <AssociationSet Name="LogLog" Association="Model1.LogLog">
+            <End Role="Log" EntitySet="LogSet" />
+            <End Role="Log1" EntitySet="LogSet" />
+          </AssociationSet>
+          <EntitySet Name="SurveyItemSet" EntityType="Model1.SurveyItem" />
+          <AssociationSet Name="ItemSurveyItem" Association="Model1.ItemSurveyItem">
+            <End Role="Item" EntitySet="ItemSet" />
+            <End Role="SurveyItem" EntitySet="SurveyItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="SurveySurveyItem" Association="Model1.SurveySurveyItem">
+            <End Role="Survey" EntitySet="SurveySet" />
+            <End Role="SurveyItem" EntitySet="SurveyItemSet" />
+          </AssociationSet>
+          <EntitySet Name="TempLogItemSet" EntityType="Model1.TempLogItem" />
+          <AssociationSet Name="LogTempRemovedItem" Association="Model1.LogTempRemovedItem">
+            <End Role="Log" EntitySet="LogSet" />
+            <End Role="TempRemovedItem" EntitySet="TempLogItemSet" />
+          </AssociationSet>
+          <AssociationSet Name="ItemTempRemovedItem" Association="Model1.ItemTempRemovedItem">
+            <End Role="Item" EntitySet="ItemSet" />
+            <End Role="TempRemovedItem" EntitySet="TempLogItemSet" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Note" Relationship="Model1.ItemNote" FromRole="Item" ToRole="Note" />
+          <NavigationProperty Name="ExpertSystem" Relationship="Model1.ExpertSystemItem" FromRole="Item" ToRole="ExpertSystem" />
+          <Property Name="ExpertSystemId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="SurveyItem" Relationship="Model1.ItemSurveyItem" FromRole="Item" ToRole="SurveyItem" />
+          <NavigationProperty Name="TempRemovedItem" Relationship="Model1.ItemTempRemovedItem" FromRole="Item" ToRole="TempRemovedItem" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="RootQdeep" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="Val" Relationship="Model1.PropertyVal" FromRole="Property" ToRole="Val" />
+          <NavigationProperty Name="Question" Relationship="Model1.PropertyQuestion" FromRole="Property" ToRole="Question" />
+          <Property Name="NumberInList" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExpertSystem" Relationship="Model1.ExpertSystemProperty" FromRole="Property" ToRole="ExpertSystem" />
+          <Property Name="ExpertSystemId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Val">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" Nullable="true" />
+          <Property Name="Mean" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Property" Relationship="Model1.PropertyVal" FromRole="Val" ToRole="Property" />
+          <NavigationProperty Name="Note" Relationship="Model1.ValNote" FromRole="Val" ToRole="Note" />
+          <NavigationProperty Name="SelectorSet" Relationship="Model1.FK_ValSelector" FromRole="Val" ToRole="SelectorSet" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionTxt" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Deep" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ChildAnswer" Relationship="Model1.QuestionAnswer" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="ParentAnswer" Relationship="Model1.AnswerQuestion" FromRole="Question" ToRole="Answer" />
+          <Property Name="AnswerId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Property" Relationship="Model1.PropertyQuestion" FromRole="Question" ToRole="Property" />
+          <Property Name="PropertyId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Val" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ParentQuestion" Relationship="Model1.QuestionAnswer" FromRole="Answer" ToRole="Question" />
+          <Property Name="QuestionId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="ChildQuestion" Relationship="Model1.AnswerQuestion" FromRole="Answer" ToRole="Question" />
+          <NavigationProperty Name="SelectorSet" Relationship="Model1.FK_AnswerSelector" FromRole="Answer" ToRole="SelectorSet" />
+        </EntityType>
+        <Association Name="PropertyVal">
+          <End Type="Model1.Property" Role="Property" Multiplicity="0..1" />
+          <End Type="Model1.Val" Role="Val" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Val">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Val" Relationship="Model1.ValNote" FromRole="Note" ToRole="Val" />
+          <Property Name="ValId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Item" Relationship="Model1.ItemNote" FromRole="Note" ToRole="Item" />
+          <Property Name="ItemId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="ValNote">
+          <End Type="Model1.Val" Role="Val" Multiplicity="0..1" />
+          <End Type="Model1.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Val">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="ValId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemNote">
+          <End Type="Model1.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="Model1.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="QuestionAnswer">
+          <End Type="Model1.Question" Role="Question" Multiplicity="0..1" />
+          <End Type="Model1.Answer" Role="Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="QuestionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnswerQuestion">
+          <End Type="Model1.Answer" Role="Answer" Multiplicity="0..1" />
+          <End Type="Model1.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="AnswerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PropertyQuestion">
+          <End Type="Model1.Property" Role="Property" Multiplicity="0..1" />
+          <End Type="Model1.Question" Role="Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SelectorSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerId" Type="Int32" />
+          <Property Name="ValId" Type="Int32" />
+          <NavigationProperty Name="AnswerSet" Relationship="Model1.FK_AnswerSelector" FromRole="SelectorSet" ToRole="Answer" />
+          <NavigationProperty Name="ValSet" Relationship="Model1.FK_ValSelector" FromRole="SelectorSet" ToRole="Val" />
+          <Property Name="Probability" Nullable="false" Type="Double" />
+        </EntityType>
+        <Association Name="FK_AnswerSelector">
+          <End Type="Model1.Answer" Role="Answer" Multiplicity="0..1" />
+          <End Type="Model1.SelectorSet" Role="SelectorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectorSet">
+              <PropertyRef Name="AnswerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ValSelector">
+          <End Type="Model1.Val" Role="Val" Multiplicity="0..1" />
+          <End Type="Model1.SelectorSet" Role="SelectorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Val">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SelectorSet">
+              <PropertyRef Name="ValId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ExpertSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Property" Relationship="Model1.ExpertSystemProperty" FromRole="ExpertSystem" ToRole="Property" />
+          <NavigationProperty Name="Item" Relationship="Model1.ExpertSystemItem" FromRole="ExpertSystem" ToRole="Item" />
+          <NavigationProperty Name="User" Relationship="Model1.UserExpertSystem" FromRole="ExpertSystem" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Survey" Relationship="Model1.ExpertSystemSurvey" FromRole="ExpertSystem" ToRole="Survey" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+        </EntityType>
+        <Association Name="ExpertSystemProperty">
+          <End Type="Model1.ExpertSystem" Role="ExpertSystem" Multiplicity="0..1" />
+          <End Type="Model1.Property" Role="Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpertSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="ExpertSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExpertSystemItem">
+          <End Type="Model1.ExpertSystem" Role="ExpertSystem" Multiplicity="0..1" />
+          <End Type="Model1.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpertSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="ExpertSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ExpertSystem" Relationship="Model1.UserExpertSystem" FromRole="User" ToRole="ExpertSystem" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LastVisited" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="UserExpertSystem">
+          <End Type="Model1.User" Role="User" Multiplicity="0..1" />
+          <End Type="Model1.ExpertSystem" Role="ExpertSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpertSystem">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QId" Type="Int32" Nullable="false" />
+          <Property Name="AnswId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Survey" Relationship="Model1.SurveyLog" FromRole="Log" ToRole="Survey" />
+          <Property Name="SurveyId" Type="Int32" Nullable="true" />
+          <Property Name="PropId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NextLog" Relationship="Model1.LogLog" FromRole="Log" ToRole="Log1" />
+          <NavigationProperty Name="PrevLog" Relationship="Model1.LogLog" FromRole="Log1" ToRole="Log" />
+          <Property Name="LogId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="TempRemovedItem" Relationship="Model1.LogTempRemovedItem" FromRole="Log" ToRole="TempRemovedItem" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Log" Relationship="Model1.SurveyLog" FromRole="Survey" ToRole="Log" />
+          <NavigationProperty Name="ExpertSystem" Relationship="Model1.ExpertSystemSurvey" FromRole="Survey" ToRole="ExpertSystem" />
+          <Property Name="ExpertSystemId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="SurveyItem" Relationship="Model1.SurveySurveyItem" FromRole="Survey" ToRole="SurveyItem" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Type="Boolean" Name="IsPropbability" Nullable="false" />
+        </EntityType>
+        <Association Name="SurveyLog">
+          <End Type="Model1.Survey" Role="Survey" Multiplicity="0..1" />
+          <End Type="Model1.Log" Role="Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Survey">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="SurveyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExpertSystemSurvey">
+          <End Type="Model1.ExpertSystem" Role="ExpertSystem" Multiplicity="0..1" />
+          <End Type="Model1.Survey" Role="Survey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExpertSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Survey">
+              <PropertyRef Name="ExpertSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogLog">
+          <End Type="Model1.Log" Role="Log" Multiplicity="0..1" />
+          <End Type="Model1.Log" Role="Log1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Log1">
+              <PropertyRef Name="LogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SurveyItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Item" Relationship="Model1.ItemSurveyItem" FromRole="SurveyItem" ToRole="Item" />
+          <Property Name="ItemId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Survey" Relationship="Model1.SurveySurveyItem" FromRole="SurveyItem" ToRole="Survey" />
+          <Property Name="SurveyId" Type="Int32" Nullable="true" />
+          <Property Name="Probability" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="ItemSurveyItem">
+          <End Type="Model1.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="Model1.SurveyItem" Role="SurveyItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurveyItem">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SurveySurveyItem">
+          <End Type="Model1.Survey" Role="Survey" Multiplicity="0..1" />
+          <End Type="Model1.SurveyItem" Role="SurveyItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Survey">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SurveyItem">
+              <PropertyRef Name="SurveyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TempLogItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Log" Relationship="Model1.LogTempRemovedItem" FromRole="TempRemovedItem" ToRole="Log" />
+          <Property Name="LogId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Item" Relationship="Model1.ItemTempRemovedItem" FromRole="TempRemovedItem" ToRole="Item" />
+          <Property Name="ItemId" Type="Int32" Nullable="true" />
+          <Property Name="Probability" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="LogTempRemovedItem">
+          <End Type="Model1.Log" Role="Log" Multiplicity="0..1" />
+          <End Type="Model1.TempLogItem" Role="TempRemovedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempRemovedItem">
+              <PropertyRef Name="LogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemTempRemovedItem">
+          <End Type="Model1.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="Model1.TempLogItem" Role="TempRemovedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TempRemovedItem">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="ItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Item)">
+        <MappingFragment StoreEntitySet="ItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ExpertSystemId" ColumnName="ExpertSystemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Property)">
+        <MappingFragment StoreEntitySet="PropertySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RootQdeep" ColumnName="RootQdeep" />
+          <ScalarProperty Name="NumberInList" ColumnName="NumberInList" />
+          <ScalarProperty Name="ExpertSystemId" ColumnName="ExpertSystemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ValSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Val)">
+        <MappingFragment StoreEntitySet="ValSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="Mean" ColumnName="Mean" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Question)">
+        <MappingFragment StoreEntitySet="QuestionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QuestionTxt" ColumnName="QuestionTxt" />
+          <ScalarProperty Name="Deep" ColumnName="Deep" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnswerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Answer)">
+        <MappingFragment StoreEntitySet="AnswerSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Val" ColumnName="Val" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Note)">
+        <MappingFragment StoreEntitySet="NoteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ValId" ColumnName="ValId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SelectorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SelectorSet)">
+        <MappingFragment StoreEntitySet="SelectorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AnswerId" ColumnName="AnswerId" />
+          <ScalarProperty Name="ValId" ColumnName="ValId" />
+          <ScalarProperty Name="Probability" ColumnName="Probability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpertSystemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ExpertSystem)">
+        <MappingFragment StoreEntitySet="ExpertSystemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LastVisited" ColumnName="LastVisited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Log)">
+        <MappingFragment StoreEntitySet="LogSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QId" ColumnName="QId" />
+          <ScalarProperty Name="AnswId" ColumnName="AnswId" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="PropId" ColumnName="PropId" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Survey)">
+        <MappingFragment StoreEntitySet="SurveySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExpertSystemId" ColumnName="ExpertSystemId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsPropbability" ColumnName="IsPropbability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SurveyItem)">
+        <MappingFragment StoreEntitySet="SurveyItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="Probability" ColumnName="Probability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempLogItemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TempLogItem)">
+        <MappingFragment StoreEntitySet="TempLogItemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Probability" ColumnName="Probability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

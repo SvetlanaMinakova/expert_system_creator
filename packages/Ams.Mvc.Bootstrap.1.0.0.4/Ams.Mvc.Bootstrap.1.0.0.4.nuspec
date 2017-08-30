@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Ams.Mvc.Bootstrap</id>
+    <version>1.0.0.4</version>
+    <title>Ams.Mvc.Bootstrap</title>
+    <authors>Adam Sprich</authors>
+    <owners>Adam Sprich</owners>
+    <licenseUrl>https://amsmvcbootstrap.codeplex.com/license</licenseUrl>
+    <projectUrl>https://amsmvcbootstrap.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a hand full of Bootstrap helper methods that should generally replace the @Html.</description>
+    <releaseNotes>Updating the LabeledFileUpload method.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>ams bootstrap mvc bootstrap mvc</tags>
+    <dependencies>
+      <dependency id="Ams.Extensions" version="1.0.0.1" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Web.Mvc" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Web.WebPages" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

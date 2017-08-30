@@ -1,0 +1,35 @@
+﻿@model MvcApplication1.Models.Question
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@section headermenu
+    { 
+        @if(Model.ParentAnswer!=null)
+           { @Html.ActionLink("To parent question", "Edit", "Question",new{id=Model.ParentAnswer.QuestionId}, new {@class="MainMenuPart" })}
+             @Html.ActionLink("To main menu", "Menu", "ExpertSystem",new{id=Model.Property.ExpertSystemId},new {@class="MainMenuPart" })
+}
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+<h2>Delete question</h2>
+
+<h3>
+    The branch of expert system below this question will be deleted too.<br>
+    Are you shure than you want delete question?
+</h3>
+<fieldset>
+    <legend>Question</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionTxt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionTxt)
+    </div>
+    <p>
+        <input type="submit" value="Delete" />
+     </p>
+
+</fieldset>
+}

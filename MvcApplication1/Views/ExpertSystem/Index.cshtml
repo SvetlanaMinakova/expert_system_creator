@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MvcApplication1.Models.ExpertSystem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section headermenu
+    {                       @Html.ActionLink("To the main", "Index", "Home",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("Log in", "Login", "User",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("Registration", "Create", "User",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("About the project", "About", "Home",null, new {@class="MainMenuPart" })
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<h3>Published expert systems</h3>
+}
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Published by
+        </th>
+        <th>
+        </th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <th>
+                @Html.DisplayFor(modelItem => item.Name)
+        </th>
+                <th>
+                @Html.DisplayFor(modelItem => item.User.Login)
+        </th>
+        <td>
+            @Html.ActionLink("Survey", "Create", "Survey", new { userid = (-1), esysid = @item.Id }, new { @class = "MainMenuPart" })
+        </td>
+    </tr>
+}
+    </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

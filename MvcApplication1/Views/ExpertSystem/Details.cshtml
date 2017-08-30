@@ -1,0 +1,21 @@
+﻿@model MvcApplication1.Models.ExpertSystem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробности</h2>
+
+<fieldset>
+    <legend>ExpertSystem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+</fieldset>
+<p>
+    <a class="GoBackLink" id="GoBack" href="http://localhost:9816/ExpertSystem/Index/@Model.UserId">К списку экспертных систем</a>
+</p>

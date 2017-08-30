@@ -1,0 +1,163 @@
+﻿<?xml version='1.0'?>
+<EXPERTSYSTEM Name= 'ExpertSystem1' Owner= 'Margo'>
+<Property' Name= 'Color'>
+<Value Mean= 'Red'>
+</Value>
+<Value Mean= 'Green'>
+</Value>
+<Value Mean= 'Blue'>
+</Value>
+<Value Mean= 'Lemon'>
+</Value>
+<Value Mean= 'Pink'>
+</Value>
+<Value Mean= 'Violet'>
+</Value>
+<Value Mean= 'Yellow'>
+</Value>
+<Question Text= 'Do you like warm or cold colors?'>
+<Answer Val=Warm'>
+</Answer>
+<Answer Val=Cold'>
+</Answer>
+</Question>
+<Question Text= 'Red or Yellow?'>
+<Answer Val=Red'>
+</Answer>
+<Answer Val=Yellow'>
+</Answer>
+</Question>
+<Question Text= 'Bright or soft?'>
+<Answer Val=Bright'>
+<Selector Probability= '0,7AnswerId='5' Value=Yellow'>
+</Selector>
+<Selector Probability= '0,3AnswerId='5' Value=Lemon'>
+</Selector>
+</Answer>
+<Answer Val=Soft'>
+<Selector Probability= '0,7AnswerId='6' Value=Lemon'>
+</Selector>
+<Selector Probability= '0,3AnswerId='6' Value=Yellow'>
+</Selector>
+</Answer>
+</Question>
+<Question Text= 'Green or blue?'>
+<Answer Val=Green'>
+<Selector Probability= '1AnswerId='7' Value=Green'>
+</Selector>
+</Answer>
+<Answer Val=Blue'>
+<Selector Probability= '0,8AnswerId='8' Value=Blue'>
+</Selector>
+</Answer>
+</Question>
+</Property>
+<Property' Name= 'Shape'>
+<Value Mean= 'Round'>
+</Value>
+<Value Mean= 'Rect'>
+</Value>
+<Value Mean= 'Cubic'>
+</Value>
+<Question Text= 'What shape do you like?'>
+<Answer Val=Round'>
+<Selector Probability= '1AnswerId='9' Value=Round'>
+</Selector>
+</Answer>
+<Answer Val=Rectangle'>
+<Selector Probability= '0,7AnswerId='10' Value=Rect'>
+</Selector>
+<Selector Probability= '0,3AnswerId='10' Value=Cubic'>
+</Selector>
+</Answer>
+</Question>
+</Property>
+<Property' Name= 'Size'>
+<Value Mean= 'big'>
+</Value>
+<Value Mean= 'small'>
+</Value>
+<Value Mean= 'average'>
+</Value>
+<Question Text= 'What size do you prefer?'>
+<Answer Val=Big'>
+</Answer>
+<Answer Val=Small'>
+</Answer>
+<Answer Val=Average'>
+</Answer>
+</Question>
+<Question Text= 'Very big or not very big?'>
+<Answer Val=Very big'>
+</Answer>
+<Answer Val=Not very big'>
+</Answer>
+</Question>
+</Property>
+<Item Name= 'RedRound'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'big'>
+</Item>
+<Item Name= 'RedCube'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Cubic'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'average'>
+</Item>
+<Item Name= 'RedRect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Rect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'small'>
+</Item>
+<Item Name= 'BlueRect'>
+<Property:='Color' Mean= 'Blue'>
+<Property:='Shape' Mean= 'Rect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'small'>
+</Item>
+<Item Name= 'BlueRound'>
+<Property:='Color' Mean= 'Blue'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'average'>
+</Item>
+<Item Name= 'BlueCubic'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Cubic'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'big'>
+<Property:='Color' Mean= 'Blue'>
+<Property:='Shape' Mean= 'Cubic'>
+<Property:='Size' Mean= 'big'>
+</Item>
+<Item Name= 'GreenRect'>
+<Property:='Color' Mean= 'Green'>
+<Property:='Shape' Mean= 'Rect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'small'>
+</Item>
+<Item Name= 'LemonRect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Rect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'small'>
+</Item>
+<Item Name= 'YellowRect'>
+<Property:='Color' Mean= 'Yellow'>
+<Property:='Shape' Mean= 'Rect'>
+<Property:='Color' Mean= 'Red'>
+<Property:='Shape' Mean= 'Round'>
+<Property:='Size' Mean= 'big'>
+</Item>
+</EXPERTSYSTEM>

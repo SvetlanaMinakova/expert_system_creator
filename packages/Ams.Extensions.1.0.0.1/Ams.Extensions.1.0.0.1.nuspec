@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Ams.Extensions</id>
+    <version>1.0.0.1</version>
+    <title>Ams.Extensions</title>
+    <authors>Adam Sprich</authors>
+    <owners>Adam Sprich</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a collection of useful (at least to me) extension methods.</description>
+    <releaseNotes>Initial check-in.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>extensions ams</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

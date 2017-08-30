@@ -1,0 +1,40 @@
+﻿@model MvcApplication1.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+@section headermenu
+    { 
+         @Html.ActionLink("Back", "Menu", "User",new{id=Model.Id}, new {@class="MainMenuPart" })
+}
+<h2>Delete Account</h2>
+
+<h3>Are you shure that you want delete your account? <br>
+    All your expert systems, will be removed with it</h3>
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Login)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Login)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,38 @@
+﻿@model MvcApplication1.Models.Property
+
+@{
+    ViewBag.Title = "Details";
+}
+@section headermenu
+    { 
+
+             @Html.ActionLink("Edit property", "Edit", "Property",new{id=Model.Id},  new {@class="MainMenuPart" })
+             @Html.ActionLink("To tables", "Menu", "ExpertSystem",new{id=Model.ExpertSystemId}, new {@class="MainMenuPart" })
+             @Html.ActionLink("To the tree", "TreeView", "ExpertSystem",new{id=Model.ExpertSystemId},  new {@class="MainMenuPart" })
+    }
+<h2>Property Details</h2>
+
+<fieldset>
+    <legend>Property</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RootQdeep)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RootQdeep)
+    </div>
+
+</fieldset>
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

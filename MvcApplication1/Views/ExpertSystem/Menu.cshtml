@@ -1,0 +1,143 @@
+﻿@model MvcApplication1.Models.ExpertSystem
+
+
+@section headermenu
+    { 
+        
+     @Html.ActionLink("Back", "Menu", "User", new { id = Model.UserId }, new {@class="MainMenuPart" })
+     @Html.ActionLink("Show Tree", "TreeView", "ExpertSystem", new { id = Model.Id }, new {@class="MainMenuPart" })
+}
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_ExpSysMenuLayout.cshtml";
+}
+
+<div id="mainexpsysleft">
+    <h1>Knowledge base: </h1>
+    <h3>Properties: </h3>
+     <p>   @Html.ActionLink("+ Add new property", "Create", "Property", new { id = Model.Id }, new { @class = "localMenuPart" })</p>
+      <p>   @Html.ActionLink("Property numeration in survey", "PropertyNumeration", "ExpertSystem", new { id = Model.Id }, new { @class = "localMenuPart" })</p>
+<table class="mainexpsystable">   
+        @foreach (var item in Model.Property.OrderBy(x=>x.NumberInList)) {
+
+      <tr>
+          <th class="yellowth">@item.Name</th>
+          <td>  @Html.ActionLink("Edit","Edit","Property",new {id=item.Id},null)</td>
+          <td>@Html.ActionLink("Delete","Delete","Property",new {id=item.Id},null)</td>
+          @if(item.RootQdeep==0)
+          {<td>@Html.ActionLink("Create root question","CreateRoot","Question",new {id=item.Id},null)</td>}
+          else
+          {<td>@Html.ActionLink("To root question","ToRoot","Property",new {id=item.Id},null)
+           </td>}
+    </tr>
+}
+        </table>
+
+        <h3>Questions: </h3>
+
+       <table class="mainexpsystable">   
+        @foreach (var prop in Model.Property) {
+            <tr>
+                <th class="yellowth">Property:</th>
+                <th class="yellowth">@prop.Name</th>
+            </tr>
+            for(var i=1;i<=prop.RootQdeep;i++){
+            <tr>
+                <th class="greenth">Level:</th>
+                <th class="greenth">@i</th>
+            </tr>
+            foreach (var question in prop.Question.Where(q=> q.Deep==i)) {
+         <tr>
+           <td>@question.QuestionTxt </td>
+          <td>
+           <a>@Html.ActionLink("Edit","Edit","Question",new {id=question.Id,expsysid=Model.Id},null) | </a>
+           <a>@Html.ActionLink("Delete","Delete","Question",new {id=question.Id},null)</a>
+           <a></a>
+          </td>
+      </tr>     
+  }
+  }
+}
+</table>
+        <h3>Answers: </h3>
+
+       <table class="mainexpsystable">   
+        @foreach (var prop in Model.Property) {
+            <tr>
+                <th class="yellowth">Property:</th>
+                <th class="yellowth">@prop.Name</th>
+            </tr>
+            for(var i=1;i<=prop.RootQdeep;i++){
+            <tr>
+                <th class="greenth">Level:</th>
+                <th class="greenth">@i</th>
+            </tr>
+            foreach (var question in prop.Question.Where(q=> q.Deep==i)) {
+                foreach (var answer in question.ChildAnswer) {
+         <tr>
+           <td>@answer.Val</td>
+          <td>
+           <a>@Html.ActionLink("Parent question","Edit","Question",new {id=question.Id},null) | </a>
+              @if(@answer.ChildQuestion.Count()!=0)
+           {<a>@Html.ActionLink("Child question","Edit","Question",new {id=answer.ChildQuestion.First().Id},null) | </a>
+           <a>@Html.ActionLink("Delete child question","Delete","Question",new {id=answer.ChildQuestion.First().Id},null) | </a>}
+              else
+           {<a>@Html.ActionLink("Add child question","Create","Question",new {id=answer.Id},null) | </a>}
+           <a>@Html.ActionLink("Edit","Edit","Answer",new {id=answer.Id},null) | </a>
+           <a>@Html.ActionLink("Delete","Delete","Answer",new {id=answer.Id},null)</a>
+           <a></a>
+          </td>
+      </tr>     
+  }
+  }
+  }
+}
+</table>
+</div>
+               
+<div id="mainexpsysright">
+     <h1>Data base: </h1>
+    
+        <h3>Items: </h3>
+    <p> @Html.ActionLink("+ Add new item", "Create", "Item", new { id = Model.Id },new { @class = "localMenuPart" })</p>  
+       <table class="mainexpsystable">   
+            <tr>
+                <th class="yellowth"></th>
+        @foreach(var prop in Model.Property)
+        {
+            <th class="yellowth">@prop.Name</th>
+        }
+                  <th class="yellowth" ></th>
+           </tr>
+        @foreach (var item in Model.Item) {
+          <tr>
+           <th class="greenth">@item.Name</th>
+
+        @foreach (var prop in Model.Property)
+        {   try
+          {var not = item.Note.First(x => x.Val.PropertyId == prop.Id);
+             <td>
+               @not.Val.Mean
+             </td> 
+            }
+            catch(Exception)
+            {
+             <td>
+               NULL
+             </td> 
+            }
+            
+        }
+           <td>
+               <a>@Html.ActionLink("Edit","Edit","Item",new {id=item.Id},null)</a>
+               <a>@Html.ActionLink("Delete","Delete","item",new {id=item.Id},null)</a>
+          </td>
+      </tr>
+}
+</table>
+
+    </div>
+             @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }

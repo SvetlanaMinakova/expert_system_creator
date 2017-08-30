@@ -1,0 +1,26 @@
+﻿@model MvcApplication1.Models.Item
+
+@{
+    ViewBag.Title = "Finish";
+}
+@section headermenu
+    {  @if(@ViewBag.UserId!=(-1))
+       { @Html.ActionLink("To my main menu", "Menu", "User",new{id=@ViewBag.UserId}, new {@class="MainMenuPart" })  }
+else
+{@Html.ActionLink("Finish", "Index", "ExpertSystem",null, new {@class="MainMenuPart" })} 
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+<h2>Result:</h2>
+<h3>Result: </h3>
+<div class="UserLableNonFloat">
+    @Html.DisplayFor(model=> model.Name)
+ </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

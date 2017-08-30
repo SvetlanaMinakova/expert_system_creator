@@ -1,0 +1,44 @@
+﻿@model MvcApplication1.Models.Question
+
+@{
+    ViewBag.Title = "Details";
+}
+@section headermenu
+    { 
+             @Html.ActionLink("Edit question", "Edit", "Question",new{id=Model.Id}, new {@class="MainMenuPart" })
+             @Html.ActionLink("To tables", "Menu", "ExpertSystem",new{id=Model.Property.ExpertSystemId}, new {@class="MainMenuPart" })
+             @Html.ActionLink("To the tree", "TreeView", "ExpertSystem",new{id=Model.Property.ExpertSystemId}, new {@class="MainMenuPart" })
+
+}
+<h2>Question Details</h2>
+
+<fieldset>
+    <legend>Question</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.QuestionTxt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.QuestionTxt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Deep)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Deep)
+    </div>
+    <div class="display-label">
+        Parent answer: 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentAnswer.Val)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Property.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Property.Name)
+    </div>
+</fieldset>

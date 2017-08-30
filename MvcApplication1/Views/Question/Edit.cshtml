@@ -1,0 +1,69 @@
+﻿@model MvcApplication1.Models.Question
+
+@{
+    ViewBag.Title = "Edit";
+}
+@section headermenu
+    { 
+@Html.ActionLink("Back", "Menu", "ExpertSystem", new { id = Model.Property.ExpertSystemId }, new {@class="MainMenuPart" })
+}
+<h2>Edit question</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Question</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionTxt)
+        </div>
+        <div class="editor-field longfield">
+            @Html.EditorFor(model => model.QuestionTxt)
+            @Html.ValidationMessageFor(model => model.QuestionTxt)
+        </div>
+
+       <h3>Answers: </h3>
+
+
+@Html.ActionLink("+Add new Answer", "Create", "Answer",new{id=Model.Id}, new {@class="smallUserLableNonFloat" })
+
+
+<table class="mainexpsystable">
+
+@foreach (var answ in Model.ChildAnswer) {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => answ.Val)
+        </th>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Answer",new{id=answ.Id},null)
+            </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", "Answer",new{id=answ.Id},null) 
+        </td>
+        <td> @if(answ.ChildQuestion.Count()==0)
+             { @Html.ActionLink("Create child question", "Create", "Question",new{id=answ.Id},null)}
+            else
+            {<b>Child question : @answ.ChildQuestion.First().QuestionTxt | </b>
+             @Html.ActionLink("Delete child question", "Delete", "Question",new{id=@answ.ChildQuestion.First().Id},null)}
+        </td>
+    </tr>
+}
+
+</table>
+         <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,48 @@
+﻿@model MvcApplication1.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@section headermenu
+    {                       @Html.ActionLink("To the main", "Index", "Home",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("Log in", "Login", "User",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("Registration", "Create", "User",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("About us", "About", "Home",null, new {@class="MainMenuPart" })
+}
+<h2>Log in</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Login)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Login)
+            @Html.ValidationMessageFor(model => model.Login)
+           <div class="message-error"> @ViewBag.LoginErr</div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+           <div class="message-error">  @ViewBag.PassErr</div>
+        </div>
+        <p>
+            <input type="submit" value="Log in" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

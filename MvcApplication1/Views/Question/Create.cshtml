@@ -1,0 +1,46 @@
+﻿@model MvcApplication1.Models.Question
+
+@{
+    ViewBag.Title = "Create";
+}
+@section headermenu
+    { 
+@Html.ActionLink("To parent question", "Edit", "Question",new{id=Model.ParentAnswer.QuestionId}, new {@class="MainMenuPart" })
+}
+<h2>Add Question</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Question</legend>
+
+        <h3>Question above: </h3>
+            <div>
+            @Model.ParentAnswer.ParentQuestion.QuestionTxt
+            </div>
+        <h3>Answer: </h3>
+               <div>
+               @Model.ParentAnswer.Val
+                </div>
+
+        <h3>Next Question: </h3>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.QuestionTxt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuestionTxt)
+            @Html.ValidationMessageFor(model => model.QuestionTxt)
+        </div>
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

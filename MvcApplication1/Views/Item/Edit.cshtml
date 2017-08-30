@@ -1,0 +1,46 @@
+﻿@model MvcApplication1.Models.Item
+
+@{
+    ViewBag.Title = "Edit";
+}
+@section headermenu
+    { 
+
+             @Html.ActionLink("Back", "Menu", "User",new{id=Model.ExpertSystemId}, new {@class="MainMenuPart" })
+}
+<h2>Edit Item</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Item</legend>
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+                @for (var i = 0; i <@Model.ExpertSystem.Property.Count(); i++)
+        { <div class="editor-label">
+            @Model.ExpertSystem.Property.ElementAt(i).Name
+          </div>
+            @Html.DropDownList("props",
+             new SelectList(Model.ExpertSystem.Property.ElementAt(i).Val,
+                        "Id", "Mean"))
+         }
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,48 @@
+﻿@model MvcApplication1.Models.User
+
+@{
+    ViewBag.Title = "Menu";
+}
+@section headermenu
+    { 
+        @Html.ActionLink("My personal data", "Edit", "User",new{id=Model.Id},new {@class="MainMenuPart" })
+        @Html.ActionLink("Logout", "Index", "Home",null,new {@class="MainMenuPart" })
+        @Html.ActionLink("Delete account", "Delete", "User",new{id=Model.Id},new {@class="MainMenuPart" })
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.ActionLink("+ Create new expert system", "Create", "ExpertSystem", new { id = Model.Id},new { @class = "localMenuPart" })
+    <h3>*If you can't publish your expert system, it may contain errors. Please, check it before publication</h3>
+             <table>
+    @foreach(var esys in Model.ExpertSystem)
+    {
+       
+        <tr>
+        <td>
+            <div class="UserLable">
+                @Html.DisplayFor(modelItem => esys.Name)
+            </div>
+        </td>
+        <td>
+             @if(esys.IsPublished)
+             {@Html.ActionLink("Hide", "ChangePrivacy", "ExpertSystem",new{id=esys.Id}, new { @class = "localMenuPart" })}
+            else
+             {
+                 @Html.ActionLink("Publish", "ChangePrivacy", "ExpertSystem",new{id=esys.Id}, new { @class = "localMenuPart" })
+             }
+             @Html.ActionLink("Edit", "Menu", "ExpertSystem",new{id=esys.Id}, new { @class = "localMenuPart" })
+             @Html.ActionLink("Survey", "Create", "Survey",new{userid=Model.Id,esysid=esys.Id}, new { @class = "localMenuPart" })
+             @Html.ActionLink("Change name", "Edit", "ExpertSystem",new{id=esys.Id}, new { @class = "localMenuPart" })
+             @Html.ActionLink("Delete", "Delete", "ExpertSystem",new{id=esys.Id}, new { @class = "localMenuPart" })<br />
+             @Html.ActionLink("Download as XML", "DownLoadXML", "ExpertSystem",new{id=esys.Id}, new { @class = "localMenuPart" })
+            
+        </td>
+    </tr>
+    }
+    </table>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

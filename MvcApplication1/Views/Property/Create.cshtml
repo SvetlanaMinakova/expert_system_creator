@@ -1,0 +1,34 @@
+﻿@model MvcApplication1.Models.Property
+
+@{
+    ViewBag.Title = "Create";
+}
+@section headermenu
+    { 
+@Html.ActionLink("Back", "Menu", "ExpertSystem", new { id = Model.ExpertSystemId }, new {@class="MainMenuPart" })
+}
+<h2>Add new property</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Property</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

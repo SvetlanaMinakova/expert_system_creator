@@ -1,0 +1,87 @@
+﻿@model MvcApplication1.Models.Answer
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Answer</h2>
+@section headermenu
+    {        
+             @Html.ActionLink("To parent question", "Edit", "Question",new{id=Model.ParentQuestion.Id}, new {@class="MainMenuPart" })
+             @Html.ActionLink("To tables", "Menu", "ExpertSystem",new{id=Model.ParentQuestion.Property.ExpertSystemId}, new {@class="MainMenuPart" })
+
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Answer</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="display-field">
+          ( @Html.DisplayFor(model =>model.ParentQuestion.QuestionTxt) )
+
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Val)
+            @Html.ValidationMessageFor(model => model.Val)
+        </div>
+        <h3>Next question: </h3>
+         @if(Model.ChildQuestion.Count()==0)
+             { @Html.ActionLink("+Create child question", "Create", "Question",new{id=Model.Id},new {@class="smallUserLableNonFloat" })}
+            else
+            {<b>Child question : @Model.ChildQuestion.First().QuestionTxt | </b>
+             @Html.ActionLink("Delete child question", "Delete", "Question",new{id=@Model.ChildQuestion.First().Id},new {@class="smallUserLableNonFloat" })}
+           <h3>Selectors: </h3>
+        <table class="mainexpsystable">
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+                <th>Probability (%)</th>
+                <th>Actions</th>
+            </tr>
+             <tr>
+             <th>@Model.ParentQuestion.Property.Name = </th>
+              <td>
+             @Html.DropDownList("newselvalid",
+             new SelectList(Model.ParentQuestion.Property.Val,
+             "Id", "Mean"))
+              </td>
+                 <td><input type="number" min="0" max="100" id="newprobability" name="newprobability" /></td>
+                 @Html.ValidationMessage("newselpr")
+               <td> 
+                  <button type="submit" name="action" value="AddSelector">Add Selector</button>
+               </td>
+            </tr>
+         @foreach (var sel in Model.SelectorSet)
+        { <tr>
+            <th>
+               @Model.ParentQuestion.Property.Name = 
+           </th> 
+           <td>
+               @sel.ValSet.Mean
+           </td> 
+              <th>
+               P=@(sel.Probability*100) %
+            </th> 
+            <td>
+               @Html.ActionLink("Delete", "DeleteSelector", "Answer",new{selectorid=sel.Id,answid=Model.Id},null)
+            </td>
+          </tr>
+        }
+
+         </table>
+
+
+        <p>
+            <input type="submit" name="action" value="Save" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

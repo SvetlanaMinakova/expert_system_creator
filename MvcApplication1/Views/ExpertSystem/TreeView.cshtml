@@ -1,0 +1,28 @@
+﻿@model MvcApplication1.Models.ExpertSystem
+
+@{
+    ViewBag.Title = "TreeView";
+}
+
+@section headermenu
+    { 
+        
+     @Html.ActionLink("Back to tables", "Menu", "ExpertSystem", new { id = Model.Id }, new {@class="MainMenuPart" })
+}
+
+@section featured{ 
+ 
+     <div id="checkres" class="checkresulthidden">
+     <div id="checkrescontent">
+     </div>
+     <button id="hidecheck">Hide</button>
+     </div>
+    <div class="Tree">
+                    <p id="placeholder"></p>
+    </div>
+    <p id="curEsysId" style="visibility:hidden">@Model.Id</p>
+    }
+   @section Scripts {
+                    @Scripts.Render("~/bundles/picturescriptsmain")
+                    @Scripts.Render("~/bundles/checktree")
+                }

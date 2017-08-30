@@ -1,0 +1,39 @@
+﻿@*
+  Avaiable datas
+  
+  ViewBag._component_modal_modalid 
+  ViewBag._component_modal_viewname
+  ViewBag._component_modal_content 
+  ViewBag._component_modal_showheader
+  ViewBag._component_modal_header
+  ViewBag._component_modal_showfooter
+  ViewBag._component_modal_width
+*@
+<div id="@ViewBag._component_modal_modalid" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="@(ViewBag._component_modal_modalid)_Label" 
+                                            @(MvcHtmlString.Create("style=\"width: " + (ViewBag._component_modal_width ==0 ? "auto" : ViewBag._component_modal_width.ToString() + "px;") + "\""))
+                                            aria-hidden="true">
+  @if (ViewBag._component_modal_showheader)
+  {
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+      <h3 id="@(ViewBag._component_modal_modalid)_Label">@ViewBag._component_modal_header</h3>
+    </div>
+  }
+  <div class="modal-body">
+    @if (!string.IsNullOrEmpty(ViewBag._component_modal_viewname))
+    { 
+      @Html.Partial((string)ViewBag._component_modal_viewname)
+    }
+    else
+    { 
+      @ViewBag._component_modal_content
+    }
+  </div>
+  @if (ViewBag._component_modal_showfooter)
+  {
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary">Save changes</button>
+    </div>
+  }
+</div>

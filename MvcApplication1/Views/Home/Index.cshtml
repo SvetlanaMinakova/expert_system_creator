@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Expert systems creation website";
+}
+@section headermenu
+    {  
+                            @Html.ActionLink("Log in", "Login", "User",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("Registration", "Create", "User",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("About the project", "About", "Home",null, new {@class="MainMenuPart" })
+                            @Html.ActionLink("Published expert systems", "Index", "ExpertSystem",null, new {@class="MainMenuPart" })
+}
+
+@section featured {
+
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+<h1>Welcome to the ExpertSystemCreator WebSite</h1>
+            </hgroup>
+             <img  src="..\Images\example1.png"/>
+            </div>
+        </section>
+  
+}
+
+@section Scripts {
+        @Scripts.Render("~/Scripts/jQuery.bootstrap.min.js")
+}

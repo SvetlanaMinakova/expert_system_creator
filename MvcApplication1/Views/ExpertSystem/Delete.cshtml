@@ -1,0 +1,29 @@
+﻿@model MvcApplication1.Models.ExpertSystem
+
+@{
+    ViewBag.Title = "Delete";
+}
+@section headermenu
+    { 
+
+             @Html.ActionLink("Back", "Menu", "User",new{id=Model.UserId}, new {@class="MainMenuPart" })
+}
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+<h2>Delete Expert System</h2>
+
+<h3>Are you shure that you want delete this expert system and all its data?</h3>
+<fieldset>
+    <legend>ExpertSystem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <p>
+        <input type="submit" value="Delete" /> 
+    </p>
+</fieldset>  
+}

@@ -1,0 +1,34 @@
+﻿@model MvcApplication1.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+@section headermenu
+    { 
+     @Html.ActionLink("Edit", "Edit", "User",new{id=Model.Id},  new {@class="MainMenuPart" })
+     @Html.ActionLink("Back", "Menu", "User",new{id=Model.Id},  new {@class="MainMenuPart" })
+
+}
+<h2>My Personal Data</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Login)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Login)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+</fieldset>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
