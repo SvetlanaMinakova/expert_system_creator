@@ -1,0 +1,134 @@
+﻿
+<html>
+<head></head>
+<body>
+<h5>Author:</h5> Minakova Svetlana, student <br />
+of Bauman Moscow State University, Russia <br />
+Department "Systems of information processing and management" <br />
+<h5>Supervisor:</h5> Gapanyuk Y. E., candidate of technical science, associate Professor of<br />
+"Systems of information processing and management" department<br />
+of Bauman Moscow State University, Russia
+</div>
+<div>
+<h5>Abstract</h5>
+<p>This project is devoted to design expert systems using graphs. It describes designing a shell, which allows creating analytical expert systems with modules based on graphs. It covers the architecture of expert systems, the possibility and actuality of designing a shell for expert systems creation with the consideration of their architectural features. It shows that the modules of the expert system can be designed on the basis of graphs and such architecture allows you to use existing algorithms on graphs. Also, this  project provides a comparison of expert systems architectures based on graphs and on tables. During the comparison were revealed the advantages and disadvantages each of architectures.</p>
+<h5>Keywords</h5>
+<p>Artificial Intelligence, Expert Systems, ES, shell for expert systems creating, input component, output component, explanation component, graph-oriented architecture, data trees.</p>
+<h5>Introduction</h5>
+<p>Recently, in the field of information technology has increased interest in solving problems with methods of artificial intelligence. The reason is that the volume and complexity of information had increased, so they cannot be processed with classical methods. One of the widely used areas of artificial intelligence is expert systems (ES) – programs, which can partially replace a specialist expert in resolving problematic situations. The architecture of any ES includes a clearly defined set of modules that allows you to develop a shell for creating ES. The most common structure of the modules of the expert system is tabular forms. But they have several disadvantages which can be eliminated by using graphs. This  project describes the design of the shell for analytical ES with graph-structure modules.</p>
+<p>Expert systems (ES) is one of the development directions in artificial intelligence field. ES are the software that can perform the functions of an expert in any field, or play the role of assistant and help human to make a decision.</p>
+<p>ES can be used to perform tasks, with one or more of the following characteristics:</p>
+<ul>
+<li>1. The task cannot be represented in numerical form.</li>
+<li>2. The raw data about the subject area have the ambiguity, inaccuracy, inconsistency.</li>
+<li>3. Goals of the task cannot be expressed using a clearly defined target function</li>
+<li>4. There is no deterministic algorithm for solving the problem.</li>
+<li>5. Algorithmic solution of the problem exists, but it cannot be used because of the large dimension of solution space and constraints on resources.</li>
+</ul>
+<p>The generalized structure of the ES is provided in figure 1.</p>
+    <p>
+<img  src="Project_description_images\Figure1.png" style="height:500px; width:1000px;"/>
+        </p>
+  <p> ES includes the following components:</p> 
+<ul>
+<li>1. The user interface is designed for user interaction with the expert system. It translates external (users) natural problem-oriented language into the internal (using by expert system) knowledge representation language.</li>
+<li>2. The logical output subsystem uses task description and data from knowledge base to generate recommendations which can help to solve the task.</li>
+<li>3. The explanation module shows intermediate and final results of task processing and explains user how these results were found.</li>
+<li>4. The Knowledge acquisition module realizes the knowledge extraction function, which receives knowledge about particular subject area.</li>
+<li>5. The working memory keeps a lot of facts, describing current survey state and all key-value pairs, describing considered object from subject area and it’s certain parameters.</li>
+</ul>
+<p>One of the common classifications of expert systems is classification by the method of decision generation. According to this classification, ES are divided into the analyzing and synthesizing system.</p>
+<p>Analyzing systems select the best solution from a couple of existing solutions, while the synthesizing system synthesis a new solution.</p>
+<p>This project is devoted to development a general structure of an analyzing expert system, and shell which allows you to create expert systems with similar structure.</p>
+<p>Most of analyzing expert systems designed to assist in choosing of one object from several objects. For example, you need to buy computer. You are not an expert in computer science, but you know for in what way you will use your computer (for games, for work, or for watching movies). And you know how much you are willing to pay for it. So, you need the help of an expert (e.g., consultant), who will listen to your concerns and then will offer you a suitable computer model. In this case, you can use an expert system, designed for computer selection, instead of speaking with a shop assistent.</p>
+<h5>Knowledge base Implementation</h5>
+<p>Knowledge base is a core of any expert system.</p> 
+<p>It contains knowledge about the expert system’s subject area.</p>
+<p>Knowledge means information that reflects the experience of a specialist (expert) in a particular subject area and his opinion on the influence of parameters of the subject area on objects in this subject area.</p>
+<p>To implement the knowledge base of the expert system, it is firstly necessary to determine the knowledge representation model. </p>
+<p>The most popular knowledge representation model for ES (over 80%) is the model based on rules. This model allows to represent knowledge as sentences looks like "If <a>condition</a> then <a>action</a>"</p>
+<p>The basis of the projected knowledge base consists of facts and rules. The rules used by the inference subsystem for selecting the fact.</p>
+<p>The facts of analytical type expert system can be represented as values of object properties. For the example above, a fact may look like "a computer model called 20205ab has RAM 4Gb". Note that also the correct statement is "if the computer has a RAM of 4GB, it may be a 2020ab model".</p>
+<p>Usually the selection of object is based on several characteristics and each characteristic have different values.</p>
+<p>The semantic network that illustrates overall structure of the facts storage provided in figure 2.</p>
+ <p>
+<img  src="Project_description_images\Figure2.png" style="height:400px; width:700px;"/>
+    </p>
+    <p>After the facts storage (as part of knowledge base) was developed, it is necessary to develop the rules storage.</p>
+<p>For the expert system discussed above, we can consider the setting of property to value as an action. For the example let set a "memory" property of computer to the value "4 GB".</p> 
+<p>The conclusion of the expert system, that you require object with such characteristics can be considered as a condition.</p>
+<p>The conclusion accepted by the expert system is based on data received from the user and on the facts stored in the knowledge base. Receiving data from the user is conducted in questionnaire form that uses a number of interconnected question-answer structures.</p>
+<p>The positive side of expert systems is that the number of questions cannot be determined immediately, because it depends on the input data. So, with any number of questions, the dialogue will have the following properties:</p>
+<ul><li>1. The user will be given 1 question at a time, which means the consideration of only one property in each moment.</li>
+<li>2. The user's answer on the previous question will affect which question will be asked next.</li>
+<li>3. To ensure the variability of the findings, each question must contain several different answers.</li>
+<li>4. To ensure the uniqueness of the transition, each response can reference a maximum of one (next) question</li>
+<li>5. After the survey is completed, the system gets conclusion, setting properties to values and makes the final choice.</li>
+<li>6. Each alternative branch of polling considers the setting value of the same property. This approach, namely the grouping of questions related to a single property in a single module, greatly simplifies the process of expert system development, because it allows setting of different properties to values independently from each other.</li>
+</ul>
+<p>Of course, the properties of real objects can influence each other, but usually you can pick up a number of independent or loosely connected properties, accurately characterizing the analyzed objects.</p>
+<p>Because of this, it can be done the following assumption: the properties of an object do not affect each other, so setting two different properties to values means two independent events.</p>
+<p>Thus, setting the value of each property is associated with a subset of question-answer structures with the following properties:</p>
+<ul>
+<li>1.1. For two different properties each subset of such structures in the intersection with other similar sets yields the empty set</li>
+<li>1.2. The Union of all independent subsets is a knowledge base, because otherwise the knowledge base would contain structures not used by the expert system.</li>
+</ul>
+<p>Obviously, each value of the property must meet at least one object from the knowledge base of expert systems; otherwise expert system will not be able to offer an object with such value. Therefore, at the time of designing the dialogue with the user value must be already in the knowledge base. As soon as the system comes into a state where it is able to make a conclusion regarding the value of the property it requests this value from the facts storage.</p>
+<p>Also the following statements are true for each rule:</p>
+<ul>
+<li>1. Each subset of question-answer structures associated with the property contains the following elements :</li>
+<li>1.1 Question to be asked first. Such questions called root questions. The root question has no parent answer and the transition to it is carried out after the previous property was surveyed. In this regard, before surveying the new property, you should review only the root questions list. This feature implies that the root questions can be allocated in a separate class and that will reduce the next root question searching time.</li>
+<li>1.2 Non-root question. The transition to a non-root question depends on the answer to its parent question.</li>
+<li>1.3 Answer. Each answer can have one or zero of child (non-root) question, because otherwise the ambiguity of navigation through the tree will appear. The leaf answer (answer with no child question) must be linked with the value of property. If desired, leaf answers can also be extracted into a separate class, however, this allocation is optional, because the search for leaf and non-leaf answers is not separated. In this work assumes that the leaf answers are allocated in a separate class implicitly, by setting the pointer on the child question to zero.</li>
+<li>2 . Each question (both the root and non-root) can have 0, 1 or more child answers.</li>
+<li>3. The transition to the next property is carried out after the previous property was set into value. The order of the properties in the survey can be set manually.</li>
+</ul>
+<p>On the grounds of identified features, I designed the schema of the knowledge base environment with the rules storage. The scheme of the designed structure can be described as a semantic network. It provided in figure 3. An example of an expert system which can be implemented using designed structure provided in figure 4.</p>
+    <p><img  src="Project_description_images\Figure3.png" style="height:800px; width:1200px;"/></p>
+    <p><img  src="Project_description_images\Figure4.png" style="height:800px; width:1200px;"/></p>
+    <p>The figure shows that the components relating to the rules have the form of trees. The trees included in the rules, can be divided into the following levels:</p>
+<ul><li>1) The property level includes one property with its values and its trees of questions. The number of trees of properties corresponds to the number of properties in the system.</li>
+<li>2) The questions tree level includes a tree, which nodes are questions, and ribs are answers. Each tree of questions relates to one property, so each element of this level is included in a single element of property level.</li>
+<li>3) The question subtrees level. Includes a subset of the question tree level.</li>
+    </ul>
+<p>Then the component of logical inference, in fact, is a forest of nested trees, which can be combined into one tree using a special root node. This node will refer to properties and properties will refer to the questions of independent trees in the order given by the operator of the expert system. The tree of expert system united with a special root node can be considered as a top level of the expert system.</p>
+<p>This kind of structure has the following benefits:</p>
+<ul>
+<li>1. It allows you to use a universal recursive algorithms (search, add, delete, edit), because, irrespective of the complexity and the number of nodes, the machine output has the same appearance, and same as any siblings that are included in it. </li>
+<li>2. It is easily visualized and intuitive.</li>
+<li>3. It excludes the presence most of the errors associated with logical connections and particularaly eliminates looping.</li>
+<li>4. It makes implementation of the remaining the expert system components easier.</li>
+</ul>
+<h5>Implementation of logical output component and working memory</h5>
+<p>Actually, the logical output component has been partially realized. Making a decision means searching an object that corresponding to the parameters defined by the system during the survey completion.</p>
+<p>As the user answers questions and expert system performs the setting property to their values, the system saves these values in its working memory. </p>
+<p>To make a final decision, ES must find it in the knowledge base give its name at the output.</p>
+<p>Let’s pay attention to the following:</p>
+<ul>
+<li>1.	A set of established characteristics can meet the objects, information about which is available in the knowledge base. However, it does not mean that the knowledge base stores an object that meets all the specified characteristics. That is, the result of the search of the knowledge base should be aimed at finding an element closest to the desired element (but not coinciding with it completely)</li>
+<li>2.	The object closest in characteristics to the desired one, may be determined before the end of the survey. </li>
+<li>3.	 After setting of each property system passes the entire list of source objects again. This can be avoided, because at each step of the survey the system deliberately excludes the "bad" objects. Let the value of the characteristics is imperative. For example, if during the survey it was established that you need a computer with high performance processor, further we will consider only computers with high processor performance. For this you need to take the following steps:</li>
+<li>3.1. At each step, it is necessary to use a filter that will narrow the scope of considered objects.</li>
+<li>3.2. It is necessary to organize space in the working memory to store narrow data base</li>
+<li>3.3. By its definition, expert systems are allowed to contain inaccurate information. There can be occasions when it is unknown whether the object has the specified characteristic, or the object allows for multiple values of characteristics. In such case it is necessary to apply to the input filter all valid values of properties.</li>
+<li>4. In the case of the implementation of the algorithm with narrow base, at some step, ideally, the expert system comes to the fact that there is an only object in the storage area which obtains required properties and it will be filed on the output of the expert system as recommended. However, you may found the following results</li>
+<li>4.1. After completing the survey there are still several objects in the searching area. In this case, the simplest solution would be to select any of the objects.</li>
+<li>4.2. At some point of the survey system may be faced that it has no objects to recommend. In this case, you need to move one step back and choose the most suitable object using previous results. To implement backwards moving you need to keep the objects discarded by the filter on each survey step. To provide this opportunity, such objects must be saved in working memory on each step of the survey.</li>
+<li>5. On completion of each survey related interim information (for example, the narrowed base of the objects in question) should be removed from working memory.</li>
+</ul>
+<h5>Software implementation of the shell</h5>
+<p>The shell for expert systems creation was designed as a web application using Model-View-Controller pattern.  This framework includes classes in both C# and JavaScript and uses a SQL database under the ADO.NET-provider management.</p>
+<p>The access to the created expert systems for different users is managed by an authentication mechanism. After registration in the system, each user is provided with some space for creation his own expert systems.</p>
+
+<h5>Conclusion</h5>
+
+<p>This  project is focused on the design of a shell which allows creating analyzing expert systems. The expert systems, created with help of this shell can be used for assisting to choose a single object from several objects in any subject area, which can be described in terms of analyzing expert systems.</p>
+<p>The main advantage of the developed system is the clearness provided by the tree based architecture of its knowledge base.</p>
+<p>A disadvantage of the system is the fact that the shell does not allow to create expert systems of other types.</p>
+
+
+</div>
+</div>
+
+</body>
+</html>
